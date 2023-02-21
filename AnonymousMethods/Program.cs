@@ -11,6 +11,7 @@ namespace AnonymousMethods
         delegate bool Mydel(int x);
         delegate double DelPow(int x);
         delegate int Mass(int[] x);
+        delegate void ArrInt(int[] arr);
         static void Main(string[] args)
         {
             //1
@@ -34,19 +35,25 @@ namespace AnonymousMethods
             Console.WriteLine(res);
             //5
             int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-            Mass mass = Maxt(array => array.Max());
-            Console.WriteLine(mass);
-
-
-
+            Mass Max = array1 => array1.Max();
+            Console.WriteLine(Max(array));
+            //6
+            Mass Min = array1 => array1.Min();
+            Console.WriteLine(Min(array));
+            //7
+            ArrInt Odd = array4 =>
+            {
+                for (int i = 0; i < array4.Length; i++)
+                {
+                    if (array[i] % 2 != 0) Console.Write(array4[i] + "\t");
+                }
+            };
+            Odd(array);
         }
         private static bool DayProgram(int a, Mydel mydel3)
         {
             return true;
         }
-        private static int Maxt(Mass mydel3)
-        {
-            return mydel3.Max();
-        }
+       
     }
 }
